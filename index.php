@@ -9,11 +9,14 @@
     <h1>Entrerpise POO</h1>
     <?php
 
-        
 
+        spl_autoload_register(function($class_name){ 
+            require $class_name . '.php';
+        });
 
+        $elanformation = new Entreprise("ELAN FORMATION", "1993-01-01", "14 rue de Rhône", "67100", "Strasbourg");
 
-
+        echo $elanformation->afficherInfos();
 
         // POO_Partie1 times : 
     ?>

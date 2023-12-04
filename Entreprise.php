@@ -16,6 +16,10 @@ class Entreprise {
         $this->_ville = $ville;
     }
     
+    // ajouté pour le test 
+    public function afficherInfos() {
+        return $this->_raisonSociale." crée le ".$this->_dateCreation->format("Y")." et se situe à ".$this->_ville."(".$this->_cp.") au ".$this->_adresse;
+    }
 
     // get & set 
     public function get_raisonSociale() : string
