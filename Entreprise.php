@@ -7,6 +7,7 @@ class Entreprise {
     private string $_adresse;
     private string $_cp;
     private string $_ville;
+    private array $_employes;
 
     public function __construct(string $raisonSociale, string $dateCreation, string $adresse, string $cp, string $ville) {
         $this->_raisonSociale = $raisonSociale;
@@ -14,12 +15,40 @@ class Entreprise {
         $this->_adresse = $adresse;
         $this->_cp = $cp;
         $this->_ville = $ville;
+        $this->_employes = [];
     }
     
-    // ajouté pour le test 
-    public function afficherInfos() {
-        return $this->_raisonSociale." crée le ".$this->_dateCreation->format("Y")." et se situe à ".$this->_ville."(".$this->_cp.") au ".$this->_adresse;
+    //--------------------------------------------------------------
+    
+    public function getAdresseComplete() {
+        return $this->_adresse." ".$this->_ville." ".$this->_cp."<br>";
     }
+    
+    public function getInfos() {
+        return  $this." crée le ". $this->get_dateCreation()->format('d-m-Y') ." et se situe à l'adresse ". $this->getAdresseComplete()."<br>";
+    }
+
+    public function addEmploye(Employe $employe) {
+        $this->_employes[] = $employe;
+    }
+
+    public function afficherEmployer() {
+        $result = "<h1>Employes de $this </h1>";
+
+        foreach($this->_employes as $employe) {
+
+            $result .= $employe."<br>"; 
+
+        }
+
+        return $result;
+    }
+    
+    public function __toString() {
+        return $this->_raisonSociale;
+    }
+    //--------------------------------------------------------------
+
 
     // get & set 
     public function get_raisonSociale() : string
@@ -77,6 +106,18 @@ class Entreprise {
     public function set_ville($_ville)
     {
         $this->_ville = $_ville;
+
+        return $this;
+    }
+
+
+    public function get_employes()
+    {
+        return $this->_employes;
+    }
+    public function set_employes($employes)
+    {
+        $this->_employes = $employes;
 
         return $this;
     }
