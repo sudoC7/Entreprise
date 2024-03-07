@@ -5,14 +5,14 @@ class Employe {
     private string $_nom;
     private string $_prenom;
     private string $_email;
-    private Entreprise $entreprise; // Objet entreprise 
+    private Entreprise $_entreprise; // Objet entreprise // c'est la clé etrangère de l'entreprise   
 
     public function __construct(string $nom, string $prenom, string $email, Entreprise $entreprise) {
         $this->_nom = $nom;
         $this->_prenom = $prenom;
         $this->_email = $email;
-        $this->entreprise = $entreprise; // objet entreprise 
-        $this->entreprise->addEmploye($this); // objet entreprise 
+        $this->_entreprise = $entreprise; // objet entreprise 
+        $this->_entreprise->addEmploye($this); // objet entreprise 
 
     }
     //--------------------------------------------------------------

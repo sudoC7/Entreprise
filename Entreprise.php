@@ -7,7 +7,7 @@ class Entreprise {
     private string $_adresse;
     private string $_cp;
     private string $_ville;
-    private array $_employes;
+    private array $_employes; // ici nous créons un tableau dans le quel nous allons acceuillirs plusieurs salariés !!!!!!! 
 
     public function __construct(string $raisonSociale, string $dateCreation, string $adresse, string $cp, string $ville) {
         $this->_raisonSociale = $raisonSociale;

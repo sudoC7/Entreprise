@@ -20,6 +20,8 @@
         $employe = new Employe("SMAIL","Stéphane","stephane@elan-formation.fr", $elanformation);
         $employe1 = new Employe("GRAU","Mickael","mickael@elan-formation.fr", $elanformation);
         
+       
+       
 
         echo $elanformation->afficherEmployer();
 
